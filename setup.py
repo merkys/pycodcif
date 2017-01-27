@@ -13,7 +13,7 @@ class pycodcif_build_ext(build_ext):
         build_ext.run(self)
 
 setup(
-    name="pycodcif",
+    name="ccifparser",
     version=version,
     author="COD development team",
     description="COD CIF parser",
@@ -21,17 +21,18 @@ setup(
     author_email="grazulis@ibt.lt",
     maintainer="Andrius Merkys",
     maintainer_email="andrius.merkys@gmail.com",
-    packages=find_packages(),
+    packages=['ccifparser'],
+    package_dir={'ccifparser': 'cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser'},
     url="http://wiki.crystallography.net/cod-tools",
     license="GPLv2",
     cmdclass={'build_ext': pycodcif_build_ext},
     ext_modules=[
-        Extension('_ccifparser',
+        Extension('ccifparser.ccifparser',
                   ['cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser/ccifparser.c',
                    'cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser/ccifparser.i'],
-                  libraries=['cexceptions', 'codcif'],
-                  library_dirs=['cod-tools/src/externals/cexceptions/lib',
-                                'cod-tools/src/components/codcif/lib'],
+                  libraries=['codcif', 'cexceptions'],
+                  library_dirs=['cod-tools/src/components/codcif/lib',
+                                'cod-tools/src/externals/cexceptions/lib'],
                   include_dirs=['cod-tools/src/externals/cexceptions',
                                 'cod-tools/src/externals/getoptions',
                                 'cod-tools/src/components/codcif']),
