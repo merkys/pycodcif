@@ -1,8 +1,21 @@
 from setuptools import setup, find_packages, Extension
+from setuptools.command.install import install
+from distutils.command.build import build
 from distutils.command.build_ext import build_ext
 import subprocess
 
 version = '1.0.0';
+
+class CustomBuild(build):
+    def run(self):
+        self.run_command('build_ext')
+        build.run(self)
+
+
+class CustomInstall(install):
+    def run(self):
+        self.run_command('build_ext')
+        self.do_egg_install()
 
 class pycodcif_build_ext(build_ext):
     def run(self):
@@ -25,9 +38,10 @@ setup(
     package_dir={'ccifparser': 'cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser'},
     url="http://wiki.crystallography.net/cod-tools",
     license="GPLv2",
-    cmdclass={'build_ext': pycodcif_build_ext},
+    cmdclass={'build_ext': pycodcif_build_ext, 'build': CustomBuild,
+              'install': CustomInstall},
     ext_modules=[
-        Extension('ccifparser.ccifparser',
+        Extension('ccifparser._ccifparser',
                   ['cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser/ccifparser.c',
                    'cod-tools/src/lib/python2.7/dist-packages/cod/ccifparser/ccifparser.i'],
                   libraries=['codcif', 'cexceptions'],
