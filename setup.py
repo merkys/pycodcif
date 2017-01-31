@@ -41,7 +41,7 @@ setup(
               'build': CustomBuild,
               'install': CustomInstall},
     ext_modules=[
-        Extension('pycodcif.pycodcif',
+        Extension('pycodcif._pycodcif',
                   ['cod-tools/src/components/pycodcif/pycodcif.c',
                    'cod-tools/src/components/pycodcif/pycodcif.i'],
                   libraries=['codcif', 'cexceptions'],
