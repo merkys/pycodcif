@@ -4,7 +4,7 @@ from distutils.command.build import build
 from distutils.command.build_ext import build_ext
 import subprocess
 
-version = '1.0.0';
+version = '0.1.0';
 
 class CustomBuild(build):
     def run(self):
