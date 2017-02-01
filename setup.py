@@ -5,6 +5,7 @@ from distutils.command.build_ext import build_ext
 import subprocess
 
 version = '0.2.0';
+svnrevision = '4854';
 
 class CustomBuild(build):
     def run(self):
@@ -18,9 +19,9 @@ class CustomInstall(install):
 
 class pycodcif_build_ext(build_ext):
     def run(self):
-        subprocess.check_call(['make'],
+        subprocess.check_call(['make', 'SVN_VERSION={}'.format(svnrevision)],
                               cwd='cod-tools/src/externals/cexceptions')
-        subprocess.check_call(['make', '--assume-old', 'cif_grammar.y'],
+        subprocess.check_call(['make', '--assume-old', 'cif_grammar.y', 'SVN_VERSION={}'.format(svnrevision)],
                               cwd='cod-tools/src/components/codcif')
         build_ext.run(self)
 
@@ -28,8 +29,8 @@ setup(
     name="pycodcif",
     version=version,
     author="COD development team",
-    description="COD CIF parser",
-    long_description="COD CIF parser",
+    description="COD CIF v1.1 parser",
+    long_description="COD CIF v1.1 parser",
     author_email="grazulis@ibt.lt",
     maintainer="Andrius Merkys",
     maintainer_email="andrius.merkys@gmail.com",
