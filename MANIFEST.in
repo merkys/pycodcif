@@ -1,0 +1,9 @@
+prune cod-tools/data
+prune cod-tools/debian
+prune cod-tools/doc
+prune cod-tools/scripts
+prune cod-tools/src/components/codcif/data
+prune cod-tools/src/externals/spglib
+prune cod-tools/src/lib
+prune cod-tools/tests
+include cod-tools/src/components/codcif/cif_grammar.tab.*
