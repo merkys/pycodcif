@@ -20,7 +20,7 @@ class pycodcif_build_ext(build_ext):
     def run(self):
         subprocess.check_call(['make'],
                               cwd='cod-tools/src/externals/cexceptions')
-        subprocess.check_call(['make'],
+        subprocess.check_call(['make', '--assume-old', 'cif_grammar.y'],
                               cwd='cod-tools/src/components/codcif')
         build_ext.run(self)
 
