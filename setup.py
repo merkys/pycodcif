@@ -1,4 +1,4 @@
-from setuptools import setup, Extension
+from setuptools import setup, Command, Extension
 from setuptools.command.install import install
 from distutils.command.build import build
 from distutils.command.build_ext import build_ext
@@ -25,6 +25,20 @@ class pycodcif_build_ext(build_ext):
                               cwd='cod-tools/src/components/codcif')
         build_ext.run(self)
 
+class pycodcif_test(Command):
+    user_options = []
+    def initialize_options(self):
+        pass
+    def finalize_options(self):
+        pass
+    def run(self):
+        from pycodcif import parse
+        from tempfile import NamedTemporaryFile
+        with NamedTemporaryFile() as f:
+            f.write('data_test _tag value')
+            f.flush()
+            cif = parse( f.name )
+
 setup(
     name="pycodcif",
     version=version,
@@ -40,7 +54,8 @@ setup(
     license="GPLv2",
     cmdclass={'build_ext': pycodcif_build_ext,
               'build': CustomBuild,
-              'install': CustomInstall},
+              'install': CustomInstall,
+              'test': pycodcif_test},
     ext_modules=[
         Extension('pycodcif._pycodcif',
                   ['cod-tools/src/components/pycodcif/pycodcif.c',
