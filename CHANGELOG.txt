@@ -1,0 +1,14 @@
+v0.3.0
+
+* cod-tools revision 4905: better error reporting.
+* Updating the package description.
+* Adding CHANGELOG.txt.
+
+v0.2.0
+
+* cod-tools revision 4854: refactored Python bindings for CIF parser.
+
+v0.1.0
+
+* cod-tools revision 4852
+* Initial release.

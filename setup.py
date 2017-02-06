@@ -4,8 +4,8 @@ from distutils.command.build import build
 from distutils.command.build_ext import build_ext
 import subprocess
 
-version = '0.2.0';
-svnrevision = '4854';
+version = '0.3.0';
+svnrevision = '4905';
 
 class CustomBuild(build):
     def run(self):
