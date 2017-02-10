@@ -1,3 +1,15 @@
+graft cod-tools/makefiles
+graft cod-tools/src/components/codcif/lib
+graft cod-tools/src/components/codcif/obj
+graft cod-tools/src/externals/cexceptions/lib
+graft cod-tools/src/externals/cexceptions/obj
+include cod-tools/src/components/codcif/*.c
+include cod-tools/src/components/codcif/*.h
+include cod-tools/src/externals/cexceptions/*.c
+include cod-tools/src/externals/cexceptions/*.h
+include cod-tools/src/externals/cexceptions/Makefile
+include cod-tools/src/externals/makefiles
+include cod-tools/src/makefiles
 prune cod-tools/data
 prune cod-tools/debian
 prune cod-tools/doc
@@ -6,4 +18,4 @@ prune cod-tools/src/components/codcif/data
 prune cod-tools/src/externals/spglib
 prune cod-tools/src/lib
 prune cod-tools/tests
-include cod-tools/src/components/codcif/cif_grammar.tab.*
+recursive-include cod-tools/src/components makefiles Makefile
