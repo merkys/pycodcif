@@ -19,7 +19,9 @@ class CustomInstall(install):
 
 class pycodcif_build_ext(build_ext):
     def run(self):
-        subprocess.check_call(['make', 'SVN_VERSION={}'.format(svnrevision)],
+        subprocess.check_call(['make',
+                               '--assume-old', 'Makeconfig.example',
+                               'SVN_VERSION={}'.format(svnrevision)],
                               cwd='cod-tools/src/externals/cexceptions')
         subprocess.check_call(['make',
                                '--assume-old', 'cif_grammar.y',
