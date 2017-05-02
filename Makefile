@@ -1,7 +1,8 @@
 BUILD_LOG = build.log
 SDIST_LOG = sdist.log
 
-CIF_PARSER_SRC = cod-tools/src/components/codcif/cif_grammar.tab.c
+CIF_PARSER_SRC = cod-tools/src/components/codcif/cif_grammar.tab.c \
+				 cod-tools/src/components/codcif/cif2_grammar.tab.c
 
 all: ${BUILD_LOG}
 
