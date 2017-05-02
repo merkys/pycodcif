@@ -18,4 +18,4 @@ prune cod-tools/src/components/codcif/data
 prune cod-tools/src/externals/spglib
 prune cod-tools/src/lib
 prune cod-tools/tests
-recursive-include cod-tools/src/components makefiles Makefile
+recursive-include cod-tools/src/components makefiles Makefile Makeconf
