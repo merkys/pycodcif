@@ -8,6 +8,7 @@ include cod-tools/src/components/codcif/*.h
 include cod-tools/src/externals/cexceptions/*.c
 include cod-tools/src/externals/cexceptions/*.h
 include cod-tools/src/externals/cexceptions/Makefile
+include cod-tools/src/externals/cexceptions/Makeconfig
 include cod-tools/src/externals/makefiles
 include cod-tools/src/makefiles
 prune cod-tools/data
