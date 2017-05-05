@@ -4,7 +4,7 @@ from distutils.command.build import build
 from distutils.command.build_ext import build_ext
 import subprocess
 
-version = '0.5.0';
+version = '0.6.0';
 svnrevision = '5224';
 
 class CustomBuild(build):
