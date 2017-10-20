@@ -1,34 +1,7 @@
 from setuptools import setup, Command, Extension
-from setuptools.command.install import install
-from distutils.command.build import build
-from distutils.command.build_ext import build_ext
-import subprocess
 
-version = '0.7.1';
+version = '0.7.2';
 svnrevision = '5425';
-
-class CustomBuild(build):
-    def run(self):
-        self.run_command('build_ext')
-        build.run(self)
-
-class CustomInstall(install):
-    def run(self):
-        self.run_command('build_ext')
-        self.do_egg_install()
-
-class pycodcif_build_ext(build_ext):
-    def run(self):
-        subprocess.check_call(['make',
-                               '--assume-old', 'Makeconfig.example',
-                               'SVN_VERSION={}'.format(svnrevision)],
-                              cwd='cod-tools/src/externals/cexceptions')
-        subprocess.check_call(['make',
-                               '--assume-old', 'cif_grammar.y',
-                               '--assume-old', 'cif2_grammar.y',
-                               'SVN_VERSION={}'.format(svnrevision)],
-                              cwd='cod-tools/src/components/codcif')
-        build_ext.run(self)
 
 class pycodcif_test(Command):
     user_options = []
@@ -57,19 +30,40 @@ setup(
     package_dir={'pycodcif': 'cod-tools/src/components/pycodcif'},
     url="http://wiki.crystallography.net/cod-tools",
     license="GPLv2",
-    cmdclass={'build_ext': pycodcif_build_ext,
-              'build': CustomBuild,
-              'install': CustomInstall,
-              'test': pycodcif_test},
+    cmdclass={'test': pycodcif_test},
     ext_modules=[
         Extension('pycodcif._pycodcif',
-                  ['cod-tools/src/components/pycodcif/pycodcif.c',
+                  ['cod-tools/src/externals/cexceptions/cxprintf.c',
+                   'cod-tools/src/externals/cexceptions/stringx.c',
+                   'cod-tools/src/externals/cexceptions/allocx.c',
+                   'cod-tools/src/externals/cexceptions/stdiox.c',
+                   'cod-tools/src/externals/cexceptions/cexceptions.c',
+
+                   'cod-tools/src/components/codcif/cif_options.c',
+                   'cod-tools/src/components/codcif/common.c',
+                   'cod-tools/src/components/codcif/ciftable.c',
+                   'cod-tools/src/components/codcif/yy.c',
+                   'cod-tools/src/components/codcif/cif2_lexer.c',
+                   'cod-tools/src/components/codcif/cifvalue.c',
+                   'cod-tools/src/components/codcif/cifmessage.c',
+                   'cod-tools/src/components/codcif/cif_grammar_flex.c',
+                   'cod-tools/src/components/codcif/cif_lexer.c',
+                   'cod-tools/src/components/codcif/cif.c',
+                   'cod-tools/src/components/codcif/datablock.c',
+                   'cod-tools/src/components/codcif/cif_compiler.c',
+                   'cod-tools/src/components/codcif/ciflist.c',
+                   'cod-tools/src/components/codcif/cif_grammar.tab.c',
+                   'cod-tools/src/components/codcif/cif2_grammar.tab.c',
+
+                   'cod-tools/src/components/pycodcif/pycodcif.c',
                    'cod-tools/src/components/pycodcif/pycodcif.i'],
-                  libraries=['codcif', 'cexceptions'],
-                  library_dirs=['cod-tools/src/components/codcif/lib',
-                                'cod-tools/src/externals/cexceptions/lib'],
+                  define_macros=[
+                    ('_YACC_',None),
+                    ('YYDEBUG','1'),
+                    ('SVN_VERSION',svnrevision),
+                    ('yyerror','ciferror'),
+                  ],
                   include_dirs=['cod-tools/src/externals/cexceptions',
-                                'cod-tools/src/externals/getoptions',
                                 'cod-tools/src/components/codcif']),
                 ],
 )
