@@ -1,6 +1,6 @@
 from setuptools import setup, Command, Extension
 
-version = '0.7.3';
+version = '0.8.0';
 svnrevision = '5425';
 
 class pycodcif_test(Command):
@@ -56,7 +56,7 @@ setup(
                    'cod-tools/src/components/codcif/cif2_grammar.tab.c',
 
                    'cod-tools/src/components/pycodcif/pycodcif.c',
-                   'cod-tools/src/components/pycodcif/pycodcif.i'],
+                   'cod-tools/src/components/pycodcif/pycodcif_wrap.c'],
                   define_macros=[
                     ('_YACC_',None),
                     ('YYDEBUG','1'),
