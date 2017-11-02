@@ -1,7 +1,7 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.2';
-svnrevision = '5425';
+version = '0.8.3';
+svnrevision = '5703';
 
 class pycodcif_test(Command):
     user_options = []
