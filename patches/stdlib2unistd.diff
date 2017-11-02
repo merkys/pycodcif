@@ -1,0 +1,87 @@
+--- a/cod-tools/src/components/codcif/cif.c
++++ b/cod-tools/src/components/codcif/cif.c
+@@ -12,7 +12,7 @@
+ 
+ /* uses: */
+ #include <stdio.h>
+-#include <stdlib.h>
++#include <unistd.h>
+ #include <stdarg.h>
+ #include <string.h>
+ #include <datablock.h>
+--- a/cod-tools/src/components/codcif/cif.h
++++ b/cod-tools/src/components/codcif/cif.h
+@@ -8,7 +8,7 @@
+ #ifndef __CIF_H
+ #define __CIF_H
+ 
+-#include <stdlib.h>
++#include <unistd.h>
+ #include <stdarg.h>
+ #include <datablock.h>
+ #include <cifmessage.h>
+--- a/cod-tools/src/components/codcif/cif2_lexer.h
++++ b/cod-tools/src/components/codcif/cif2_lexer.h
+@@ -9,7 +9,7 @@
+ #define __CIF2_LEXER_H
+ 
+ #include <stdio.h>
+-#include <stdlib.h> /* for ssize_t */
++#include <unistd.h> /* for ssize_t */
+ #include <cexceptions.h>
+ #include <cif_compiler.h>
+ 
+--- a/cod-tools/src/components/codcif/cif_lexer.h
++++ b/cod-tools/src/components/codcif/cif_lexer.h
+@@ -9,7 +9,7 @@
+ #define __CIF_LEXER_H
+ 
+ #include <stdio.h>
+-#include <stdlib.h> /* for ssize_t */
++#include <unistd.h> /* for ssize_t */
+ #include <cexceptions.h>
+ #include <cif_compiler.h>
+ 
+--- a/cod-tools/src/components/codcif/common.c
++++ b/cod-tools/src/components/codcif/common.c
+@@ -12,6 +12,7 @@
+ #include <ctype.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <unistd.h>
+ #include <string.h>
+ 
+ /* FIXME: use exceptions or return NULL pointers and check in
+--- a/cod-tools/src/components/codcif/common.h
++++ b/cod-tools/src/components/codcif/common.h
+@@ -8,7 +8,7 @@
+ #ifndef __COMMON_H
+ #define __COMMON_H
+ 
+-#include <stdlib.h>
++#include <unistd.h>
+ 
+ char *strclone( const char *s );
+ char *strnclone( const char *s, size_t length );
+--- a/cod-tools/src/components/codcif/datablock.c
++++ b/cod-tools/src/components/codcif/datablock.c
+@@ -12,7 +12,7 @@
+ 
+ /* uses: */
+ #include <stdio.h>
+-#include <stdlib.h>
++#include <unistd.h>
+ #include <stdarg.h>
+ #include <string.h>
+ #include <allocx.h>
+--- a/cod-tools/src/components/codcif/datablock.h
++++ b/cod-tools/src/components/codcif/datablock.h
+@@ -8,7 +8,7 @@
+ #ifndef __DATABLOCK_H
+ #define __DATABLOCK_H
+ 
+-#include <stdlib.h>
++#include <unistd.h>
+ #include <stdarg.h>
+ #include <cexceptions.h>
+ #include <cifvalue.h>
