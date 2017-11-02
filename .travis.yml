@@ -9,4 +9,4 @@ addons:
             - quilt
 
 install:
-    - pip install .
+    - python setup.py install
