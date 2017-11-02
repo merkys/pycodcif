@@ -1,6 +1,6 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.1';
+version = '0.8.2';
 svnrevision = '5425';
 
 class pycodcif_test(Command):
