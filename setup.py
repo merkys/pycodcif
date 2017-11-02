@@ -1,21 +1,7 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.3';
-svnrevision = '5703';
-
-class pycodcif_test(Command):
-    user_options = []
-    def initialize_options(self):
-        pass
-    def finalize_options(self):
-        pass
-    def run(self):
-        from pycodcif import parse
-        from tempfile import NamedTemporaryFile
-        with NamedTemporaryFile() as f:
-            f.write('data_test _tag value')
-            f.flush()
-            cif = parse( f.name )
+version = '0.8.3'
+svnrevision = '5703'
 
 setup(
     name="pycodcif",
@@ -30,7 +16,6 @@ setup(
     package_dir={'pycodcif': 'cod-tools/src/components/pycodcif'},
     url="http://wiki.crystallography.net/cod-tools",
     license="GPLv2",
-    cmdclass={'test': pycodcif_test},
     ext_modules=[
         Extension('pycodcif._pycodcif',
                   ['cod-tools/src/externals/cexceptions/cxprintf.c',
@@ -66,4 +51,6 @@ setup(
                   include_dirs=['cod-tools/src/externals/cexceptions',
                                 'cod-tools/src/components/codcif']),
                 ],
+    test_suite='nose.collector',
+    tests_require=['nose'],
 )
