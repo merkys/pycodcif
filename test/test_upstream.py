@@ -1,5 +1,3 @@
-from unittest import TestCase
-
 from os import path, listdir
 from pycodcif import parse
 import sys

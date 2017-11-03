@@ -1,6 +1,10 @@
 graft tests/cases
 graft tests/inputs
 graft tests/outputs
+exclude tests/*/cif_parser_test_070.*
+exclude tests/*/cif_parser_test_112.*
+exclude tests/*/cif_parser_test_113.*
+exclude tests/*/cif_parser_test_115.*
 include cod-tools/src/components/codcif/*.c
 include cod-tools/src/components/codcif/*.h
 include cod-tools/src/externals/cexceptions/*.c
