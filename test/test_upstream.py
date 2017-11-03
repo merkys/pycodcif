@@ -1,5 +1,5 @@
 from os import path, listdir
-from pycodcif import parse
+from pycodcif import parse, CifParserException
 import sys
 
 def test_upstream():
@@ -28,7 +28,7 @@ def check_parse(inp_file, opt_file, out_file):
                 parse(inp_file, options)
             else:
                 parse(inp_file)
-        except Exception:
+        except CifParserException:
             pass
     assert output_old == output_new[0]
 

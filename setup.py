@@ -1,7 +1,7 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.4'
-svnrevision = '5703'
+version = '0.8.5'
+svnrevision = '5706'
 
 setup(
     name="pycodcif",
