@@ -2,9 +2,9 @@ graft cod-tools/src/components/codcif/lib
 graft cod-tools/src/components/codcif/obj
 graft cod-tools/src/externals/cexceptions/lib
 graft cod-tools/src/externals/cexceptions/obj
-graft cod-tools/src/components/pycodcif/tests/cases
-graft cod-tools/src/components/pycodcif/tests/inputs
-graft cod-tools/src/components/pycodcif/tests/outputs
+graft test/cases
+graft test/inputs
+graft test/outputs
 include cod-tools/src/components/codcif/*.c
 include cod-tools/src/components/codcif/*.h
 include cod-tools/src/externals/cexceptions/*.c
