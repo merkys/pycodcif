@@ -1,7 +1,3 @@
-graft cod-tools/src/components/codcif/lib
-graft cod-tools/src/components/codcif/obj
-graft cod-tools/src/externals/cexceptions/lib
-graft cod-tools/src/externals/cexceptions/obj
 graft tests/cases
 graft tests/inputs
 graft tests/outputs
@@ -9,11 +5,3 @@ include cod-tools/src/components/codcif/*.c
 include cod-tools/src/components/codcif/*.h
 include cod-tools/src/externals/cexceptions/*.c
 include cod-tools/src/externals/cexceptions/*.h
-prune cod-tools/data
-prune cod-tools/debian
-prune cod-tools/doc
-prune cod-tools/scripts
-prune cod-tools/src/components/codcif/data
-prune cod-tools/src/externals/spglib
-prune cod-tools/src/lib
-prune cod-tools/tests
