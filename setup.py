@@ -1,6 +1,6 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.3'
+version = '0.8.4'
 svnrevision = '5703'
 
 setup(
