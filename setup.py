@@ -1,6 +1,6 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.5'
+version = '0.8.6'
 svnrevision = '5706'
 
 setup(
@@ -14,7 +14,7 @@ setup(
     maintainer_email="andrius.merkys@gmail.com",
     packages=['pycodcif'],
     package_dir={'pycodcif': 'cod-tools/src/components/pycodcif'},
-    url="http://wiki.crystallography.net/cod-tools",
+    url="http://wiki.crystallography.net/cod-tools/CIF-parser",
     license="GPLv2",
     ext_modules=[
         Extension('pycodcif._pycodcif',
