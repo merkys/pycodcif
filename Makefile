@@ -7,7 +7,7 @@ CIF_PARSER_SRC = cod-tools/src/components/codcif/cif_grammar.tab.c \
 
 all: ${BUILD_LOG}
 
-.PHONY: test tests check distclean cleanAll
+.PHONY: test tests check upload distclean cleanAll
 
 sdist: ${SDIST_LOG}
 
@@ -23,6 +23,9 @@ ${CIF_PARSER_SRC}:
 	
 test tests check:
 	python setup.py test
+
+upload: ${SDIST_LOG}
+	python setup.py sdist upload -r pypi
 
 distclean cleanAll:
 	rm -rf build/* dist pycodcif.egg-info ${BUILD_LOG} ${SDIST_LOG}
