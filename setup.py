@@ -1,7 +1,7 @@
 from setuptools import setup, Command, Extension
 
-version = '0.8.7'
-svnrevision = '5722'
+version = '0.8.8'
+svnrevision = '5724'
 
 setup(
     name="pycodcif",
@@ -45,7 +45,6 @@ setup(
                     ('_YACC_',None),
                     ('YYDEBUG','1'),
                     ('SVN_VERSION',svnrevision),
-                    ('yyerror','ciferror'),
                   ],
                   include_dirs=['cod-tools/src/externals/cexceptions',
                                 'cod-tools/src/components/codcif']),

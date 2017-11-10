@@ -18,7 +18,7 @@ ${SDIST_LOG}: ${CIF_PARSER_SRC}
 	python setup.py sdist 2>&1 | tee $@
 
 ${CIF_PARSER_SRC}:
-	quilt top || quilt push -a --quiltrc .quiltrc
+	## quilt top || quilt push -a --quiltrc .quiltrc
 	$(MAKE) -C $(@D) $(@F)
 	
 test tests check:
@@ -29,5 +29,5 @@ upload: ${SDIST_LOG}
 
 distclean cleanAll:
 	rm -rf build/* dist pycodcif.egg-info ${BUILD_LOG} ${SDIST_LOG}
-	-quilt pop -a --quiltrc .quiltrc
+	## -quilt pop -a --quiltrc .quiltrc
 	svn st --no-ignore cod-tools | xargs rm -f
